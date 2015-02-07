@@ -5,7 +5,7 @@ var React = require('react');
 var Controls = React.createClass({
 	render: function () {
 		return (
-			<div>Here will be controls</div>
+			<div className="controls">Here will be controls</div>
 		);
 	}
 });

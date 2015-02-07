@@ -15,7 +15,9 @@ var Field = React.createClass({
 	},
 	render: function () {
 		return (
-			<canvas height='320' width='480' id='conway'>Обновите браузер</canvas>
+			<div className="field">
+				<canvas height='320' width='480' id='conway' >Обновите браузер</canvas>
+			</div>
 		);
 	}
 });

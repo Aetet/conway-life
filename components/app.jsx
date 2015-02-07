@@ -1,10 +1,9 @@
 var React = require('react');
-var Conway = require('../client/js/conway');
 var Field = require('./field');
 var Controls = require('./controls');
 var Hello = React.createClass({
 	render: function () {
-		return <div>
+		return <div className="container">
 			<Field />
 			<Controls />
 		</div>

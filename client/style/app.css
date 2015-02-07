@@ -1,3 +1,15 @@
 body {
 	background-color: none;
 }
+
+.container {
+}
+
+.controls {
+	/*float: right;*/
+}
+
+.field {
+	float: left;
+	margin: 10px;
+}
