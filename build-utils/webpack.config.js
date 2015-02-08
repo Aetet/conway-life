@@ -28,16 +28,11 @@ module.exports = function (config) {
 			new webpack.optimize.AggressiveMergingPlugin()
 		] : [],
 		resolve: {
-			extensions: ['', '.js', '.jsx'],
+			extensions: ['', '.js'],
 			modulesDirectories: ['node_modules', 'bower_components']
 		},
 		module: {
-			loaders: [
-				{
-					test: /\.jsx?$/,
-					loader: 'jsx-loader?harmony'
-				}
-			]
+			loaders: []
 		}
 	}
 };
