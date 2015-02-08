@@ -1,3 +1,5 @@
+var bigInt = require("big-integer");
+
 var fixtures = {
 	'hash10': {
 		data: {
@@ -50,8 +52,6 @@ var fixtures = {
 
 			var x5st = x4st - 1;
 			var y5st = y4st;
-
-
 
 			// second
 			var x1nd = center[0] + 3;
@@ -125,5 +125,7 @@ var fixtures = {
 		}
 	}
 };
+
+
 
 module.exports = fixtures;

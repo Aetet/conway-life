@@ -2,6 +2,39 @@
  * Module for calculating conway's life game
  */
 
+var bigInt = require("big-integer");
+
+var UBig = {
+	val: function (v) {
+		return bigInt(v);
+	},
+	sub: function(v, u) {
+		u = bigInt(u);
+		return v.subtract(u);
+	},
+	add: function (v, u) {
+		u = bigInt(u);
+		return v.add(u);
+	}
+};
+
+var UNative = {
+	val : function (v) {
+		return +(v);
+	},
+	sub: function(v, u) {
+		return v - u;
+	},
+	add: function (v, u) {
+		return v + u;
+	}
+};
+
+// var u = UNative;
+var u = UBig;
+
+
+
 
 /**
  * Dummy hash function for key
@@ -68,18 +101,18 @@ function dehashing(val) {
  * @return {Array}       All neighbors for point
  */
 function findNeighbor(point) {
-	x = +point[0];
-	y = +point[1];
-	// @TODO Add checks for border conditions
+	var x = u.val(point[0]);
+	var y = u.val(point[1]);
+
 	return [
-	[x-1, y-1],
-	[x-1, y],
-	[x-1, y+1],
-	[x, y-1],
-	[x, y+1],
-	[x+1, y-1],
-	[x+1, y],
-	[x+1, y+1],
+		[u.sub(x, 1).toString(), u.sub(y, 1).toString()],
+		[u.sub(x, 1).toString(), y.toString()],
+		[u.sub(x, 1).toString(), u.add(y, 1).toString()],
+		[x.toString(), u.sub(y, 1).toString()],
+		[x.toString(), u.add(y, 1).toString()],
+		[u.add(x, 1).toString(), u.sub(y, 1).toString()],
+		[u.add(x, 1).toString(), y.toString()],
+		[u.add(x, 1).toString(), u.add(y, 1).toString()],
 	];
 }
 

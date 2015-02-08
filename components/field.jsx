@@ -10,28 +10,25 @@ var Field = React.createClass({
 		alert(err.message);
 	},
 	componentDidMount: function () {
-	  var $canvas = document.getElementById("conway");
-	  var rows = 100;
-	  var columns = 100;
-	  var data = fixtures.presets.gliders(rows, columns)
-    var conway = new Conway($canvas, {
-    	cellSize: 32,
-    	rows: rows,
-    	columns: columns,
-    });
-    conway.createGrid();
-    conway.load(data);
-    conway.run(500, 100);
-    setTimeout(function () {
-    	conway.stop();
-    }, 1000);
+		var $canvas = document.getElementById("conway");
+		var rows = 100;
+		var columns = 100;
+		var data = fixtures.presets.gliders(rows, columns)
+		var conway = new Conway($canvas, {
+			cellSize: 32,
+			rows: rows,
+			columns: columns,
+		});
+		conway.createGrid();
+		conway.load(data);
+		conway.run(500, 100);
 	},
 	render: function () {
 		return (
 			<div className="field">
-				<canvas height='320' width='480' id='conway' >Обновите браузер</canvas>
+			<canvas height='320' width='480' id='conway' >Обновите браузер</canvas>
 			</div>
-		);
+			);
 	}
 });
 
