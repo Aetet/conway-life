@@ -11,14 +11,20 @@ var Field = React.createClass({
 	},
 	componentDidMount: function () {
 	  var $canvas = document.getElementById("conway");
+	  var rows = 100;
+	  var columns = 100;
+	  var data = fixtures.presets.gliders(rows, columns)
     var conway = new Conway($canvas, {
     	cellSize: 32,
-    	rows: 100,
-    	columns: 100,
+    	rows: rows,
+    	columns: columns,
     });
     conway.createGrid();
-    conway.load(fixtures.hash10.data)
-    conway.run(1000, 500);
+    conway.load(data);
+    conway.run(500, 100);
+    setTimeout(function () {
+    	conway.stop();
+    }, 1000);
 	},
 	render: function () {
 		return (

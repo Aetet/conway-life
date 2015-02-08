@@ -31,16 +31,19 @@ Canvas.prototype = {
 			}
 		}
 	},
+	stop: function () {
+		clearInterval(this._intervalTimer);
+	},
 	run: function (steps, timeout) {
 		var self = this;
 		
-		var inter = setInterval(function () {
-			if (steps <= 0) {
-				clearInterval(inter);
+		self._intervalTimer = setInterval(function () {
+			if (self._steps <= 0) {
+				clearInterval(self._intervalTimer);
 				return;
 			}
-			self.calculate();
 			self.render();
+			self.calculate();
 			steps--;
 		}, timeout);
 
@@ -50,6 +53,9 @@ Canvas.prototype = {
 	},
 	load: function (data) {
 		this._data = data;
+	},
+	save: function () {
+		return this._data;
 	},
 	render: function () {
 		var data = this._data;

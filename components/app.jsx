@@ -4,8 +4,8 @@ var Controls = require('./controls');
 var Hello = React.createClass({
 	render: function () {
 		return <div className="container">
-			<Field />
 			<Controls />
+			<Field />
 		</div>
 	}
 });
