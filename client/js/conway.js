@@ -49,15 +49,20 @@ Canvas.prototype = {
 		this._data = alg.calculate(this._data);
 	},
 	load: function (data) {
-		this._data = data.data;
+		this._data = data;
 	},
 	render: function () {
 		var data = this._data;
 		var self = this;
-		var keys = Object.keys(data);
-		for (var i = 0; i < keys.length; i++) {
-			var point = keys[i].split(':');
+		var liveKeys = Object.keys(data.live);
+		for (var i = 0; i < liveKeys.length; i++) {
+			var point = liveKeys[i].split(':');
 			self.paintLive(point);
+		}
+		var emptyKeys = Object.keys(data.empty);
+		for (var j = 0; j < emptyKeys.length; j++) {
+			var point = emptyKeys[j].split(':');
+			self.paintEmpty(point);
 		}
 	},
 	paintEmpty: function (point) {
@@ -75,6 +80,7 @@ Canvas.prototype = {
 		var x0 = (point[0] * cell) + part;
 		var y0 = (point[1] * cell) + part;
 
+		this._ctx.clearRect(point[0] * cell, point[1] * cell, cell, cell);
 		this._ctx.strokeRect(x0, y0, width, height);
 	},
 	paintLive: function (point) {

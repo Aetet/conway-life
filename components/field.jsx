@@ -17,8 +17,8 @@ var Field = React.createClass({
     	columns: 100,
     });
     conway.createGrid();
-    conway.load(fixtures.hash10)
-    conway.run(2, 100);
+    conway.load(fixtures.hash10.data)
+    conway.run(1000, 500);
 	},
 	render: function () {
 		return (

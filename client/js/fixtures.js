@@ -2,13 +2,15 @@
 module.exports = {
 	'hash10': {
 		data: {
-			'3:5': true,
-			'4:5': true,
-			'3:7': true,
-			'4:4': true,
-			'4:8': true,
-			'5:5': true,
-			'5:7': true
+			live: {
+				'3:5': true,
+				'4:5': true,
+				'3:7': true,
+				'4:4': true,
+				'4:8': true,
+				'5:5': true,
+				'5:7': true
+			}
 		},
 		format: 'hash10'
 	},
