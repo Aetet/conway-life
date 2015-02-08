@@ -3,9 +3,9 @@ function hashing(mas) {
 }
 
 function calculate (data) {
-	var res = {};
+	var res = {live: {}, empty: {}};
 
-	var points = Object.keys(data);
+	var points = Object.keys(data.live);
 
 	points.forEach(function (hash) {
 		var point = dehashing(hash);
@@ -14,10 +14,10 @@ function calculate (data) {
 		var sum = 0;
 		neubours.forEach(function (neu) {
 			var key = hashing(neu);
-			if (!data[key]) {
+			if (!data.live[key]) {
 				var empty = findEmptyNeubor(neu, data, res);
 				if (empty) {
-					res[hashing(empty)] = true;
+					res.live[hashing(empty)] = true;
 				}			
 			} else {
 				sum+=1;
@@ -25,7 +25,9 @@ function calculate (data) {
 		});
 
 		if (sum === 2 || sum === 3) {
-			res[hashing(point)] = true;
+			res.live[hashing(point)] = true;
+		} else {
+			res.empty[hashing(point)] = true;
 		}
 	});
 
@@ -55,14 +57,14 @@ function findNeubor(point) {
 
 function findEmptyNeubor(point, data, tmpData) {
 	var key = hashing(point);
-	if (tmpData[key]) {
+	if (tmpData.live[key]) {
 		return null;
 	}
 	var neubours = findNeubor(point);
 	var sum = 0;
 	neubours.forEach(function (neu) {
 		var key = hashing(neu);
-		if (data[key]) {
+		if (data.live[key]) {
 			sum+=1;
 		}
 	});

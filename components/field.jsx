@@ -18,7 +18,7 @@ var Field = React.createClass({
     });
     conway.createGrid();
     conway.load(fixtures.hash10)
-    conway.run(200, 10);
+    conway.run(2, 100);
 	},
 	render: function () {
 		return (
