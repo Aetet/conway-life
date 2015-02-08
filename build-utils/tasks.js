@@ -2,7 +2,6 @@ var webpack = require('webpack');
 var webpackConfigFactory = require('./webpack.config');
 var bundle = require('./bundle');
 var queue = require('streamqueue');
-var Promise = require('bluebird');
 var through = require('through2');
 
 module.exports = function (gulp, plugs, config) {

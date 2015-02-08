@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugs = gulpLoadPlugins();
-var runSequence = require('run-sequence');
 var notifier = require('node-notifier');
 var lr = require('tiny-lr')();
 
