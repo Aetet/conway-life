@@ -37,9 +37,7 @@ module.exports = function (gulp, plugs, config) {
 
 		styles: function () {
 			return queue({objectMode: true},
-				gulp.src(config.paths.css),
-				gulp.src(config.paths.stylus)
-					.pipe(plugs.stylus())
+				gulp.src(config.paths.css)
 			).pipe(plugs.concat('main.css'))
 			.pipe(gulp.dest(config.paths.destStyles))
 		}
