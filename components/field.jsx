@@ -2,16 +2,23 @@
 
 var React = require('react');
 var Conway = require('../client/js/conway');
+var fixtures = require('../client/js/fixtures');
 
 var Field = React.createClass({
+	onError: function (err) {
+		console.log('err:', err);
+		alert(err.message);
+	},
 	componentDidMount: function () {
 	  var $canvas = document.getElementById("conway");
     var conway = new Conway($canvas, {
     	cellSize: 32,
-    	rows: 10,
-    	columns: 10
+    	rows: 100,
+    	columns: 100,
     });
     conway.createGrid();
+    conway.load(fixtures.hash10)
+    conway.run(200, 10);
 	},
 	render: function () {
 		return (
