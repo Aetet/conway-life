@@ -1,5 +1,5 @@
 var should = require('chai').should();
-var obj = require('../client/js/algo/index');
+var obj = require('../client/js/algo');
 var findNeighbor = obj.findNeighbor;
 var findEmptyNeighbor = obj.findEmptyNeighbor;
 var calculate = obj.calculate;
