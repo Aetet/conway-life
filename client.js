@@ -1,2 +1,2 @@
 var App = require('./client/js/app');
-App();
+var app = new App().init();

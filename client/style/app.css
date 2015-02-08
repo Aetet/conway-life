@@ -5,11 +5,11 @@ body {
 .container {
 }
 
-.controls {
-	/*float: right;*/
+.control {
+	display: inline-block;
 }
 
-.field {
-	float: left;
-	margin: 10px;
+.input-data {
+	width: 250px;
+	height: 250px;
 }

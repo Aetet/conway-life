@@ -42,6 +42,7 @@ Canvas.prototype = {
 				clearInterval(self._intervalTimer);
 				return;
 			}
+			var data = self._data;
 			self.render();
 			self.calculate();
 			steps--;
