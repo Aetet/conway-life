@@ -1,8 +1,6 @@
 Yet another implementation of Conway's life game.
 =================================================
 
->Written in pure javascript.
-
 ##What's inside?
 * Current implementation supports field with big integer size such as 2^64 x 2^64 or may be even more: `client/js/algo.js`
 * Visualization of this algo on field 100x100: `client/js/conway.js`
