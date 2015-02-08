@@ -1,7 +1,7 @@
 var should = require('chai').should();
 var obj = require('../client/js/algo/index');
-var findNeubor = obj.findNeubor;
-var findEmptyNeubor = obj.findEmptyNeubor;
+var findNeighbor = obj.findNeighbor;
+var findEmptyNeighbor = obj.findEmptyNeighbor;
 var calculate = obj.calculate;
 var output = {
 	live: {
@@ -61,9 +61,9 @@ output2 = {
 
 
 describe('Algo', function () {
-	describe('#_findNeubor', function () {
+	describe('#findNeighbor', function () {
 		it('right', function () {
-			var res = findNeubor([3,4])
+			var res = findNeighbor([3,4])
 			.should.be.deep.eql(
 				[ [ 2, 3 ],
 				[ 2, 4 ],
@@ -77,18 +77,18 @@ describe('Algo', function () {
 	});
 	describe('_findEmptyNeubor', function () {
 		it('right', function () {
-			var res = findEmptyNeubor([3,4], input, {live: {'3:4':true}});
-			should.equal(findEmptyNeubor([3,4], input, {live: {'3:4':true}}), null);
+			var res = findEmptyNeighbor([3,4], input, {live: {'3:4':true}});
+			should.equal(findEmptyNeighbor([3,4], input, {live: {'3:4':true}}), null);
 
 
-			findEmptyNeubor([3,4], input, {live: {}})
+			findEmptyNeighbor([3,4], input, {live: {}})
 			.should.be.deep.eql([3,4])
 
-			findEmptyNeubor([5,4], input, {live: {}})
+			findEmptyNeighbor([5,4], input, {live: {}})
 			.should.be.deep.eql([5,4])
 
 
-			should.equal(findEmptyNeubor([2,4], input, {live: {}}), null);
+			should.equal(findEmptyNeighbor([2,4], input, {live: {}}), null);
 			
 		});
 	});
